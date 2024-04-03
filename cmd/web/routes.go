@@ -23,5 +23,6 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/snippet/create", app.snippetCreatePost)
 
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
+
 	return standard.Then(router)
 }
